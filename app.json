@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "mylab",
+    "slug": "mylab",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "mylab"
+}

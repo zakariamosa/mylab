@@ -1,10 +1,15 @@
-import React, {useState, useEffect} from 'react';
-import banner from  '../images/banner.jpg'
+import React from 'react';
+import banner from  '../images/banner.jpg';
 import {Link} from 'react-router-dom';
+import { StyleSheet, Text, View, Image, Button, TextInput, ScrollView } from 'react-native';
 const Welcome = (/*{ nextScreen }*/) => (
-    <div className='welcomepage'>
+    <View>
+       <Image
+       source={banner}
+       style={{width: 220, height: 200, marginLeft:70}}
+       />
     
-    <img className='welcomeimag' src={banner} alt='b' ></img>
+    
     
     
 
@@ -17,8 +22,9 @@ const Welcome = (/*{ nextScreen }*/) => (
        </Link>
    </div>
 
-
-</div>
+ 
+    </View>
+    
     
 )
 

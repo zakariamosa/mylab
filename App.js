@@ -2,13 +2,18 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, Component, Fragment} from 'react';
 import { StyleSheet, Text, View, Image, Button, TextInput, ScrollView } from 'react-native';
 
-import ReactDOM from 'react-dom'
-import Welcome from './components/Welcome';
-import Home from './components/Home';
+import ReactDOM from 'react-dom';
+import Welcome from './Components/Welcome';
+import Home from './Components/Home';
 import Logo from './images/logo.png'
-import HundInfo from './components/HundInfo';
+import HundInfo from './Components/HundInfo';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import HundMoreInfo from './Components/HundMoreInfo';
+
+import { useContext } from "react";
+import HowmanytimeContext, { HowmanytimeProvider } from "./HowmanytimeContext";
+
+import HowmanytimeComp from "./HowmanytimeComp";
 
 
 
@@ -18,6 +23,7 @@ import HundMoreInfo from './Components/HundMoreInfo';
   const WELCOME = 'welcome', HOME = 'Home', HUNDINFO = 'HundInfo';
   const [currentScreen, setCurrentScreen] = useState(WELCOME);
   const [currentdog, setCurrentdog] = useState('flex');
+  const ntimes = useContext(HowmanytimeContext);
   /*const logo = {
     uri: 'https://reactnative.dev/img/tiny_logo.png',
     width: 64,
@@ -134,13 +140,26 @@ import HundMoreInfo from './Components/HundMoreInfo';
     <View style={styles.container}>
     
             <header>
-      <img src={Logo}></img>
+            
+      <Image
+                source={Logo}
+                style={{width: 220, height: 90, backgroundColor: 'black'}}
+              /> 
+              
 
       </header>
+      
       <Router>
       <Switch>
       <Route exact path="/">
             <Welcome/>
+
+
+            <HowmanytimeProvider value={{ n: "here I use context" }}>{" "}
+                <Text style={{ fontSize: 96 }}><HowmanytimeComp/></Text>
+            </HowmanytimeProvider>
+
+
             </Route>
             <Route path="/home">
             

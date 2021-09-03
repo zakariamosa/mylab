@@ -11,9 +11,8 @@ import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import HundMoreInfo from './Components/HundMoreInfo';
 
 import { useContext } from "react";
-import HowmanytimeContext, { HowmanytimeProvider } from "./HowmanytimeContext";
-
-import HowmanytimeComp from "./HowmanytimeComp";
+import XyzContext, { XyzProvider } from "./XyzContext";
+import BComp from './BComp';
 
 
 
@@ -23,7 +22,7 @@ import HowmanytimeComp from "./HowmanytimeComp";
   const WELCOME = 'welcome', HOME = 'Home', HUNDINFO = 'HundInfo';
   const [currentScreen, setCurrentScreen] = useState(WELCOME);
   const [currentdog, setCurrentdog] = useState('flex');
-  const ntimes = useContext(HowmanytimeContext);
+  
   /*const logo = {
     uri: 'https://reactnative.dev/img/tiny_logo.png',
     width: 64,
@@ -152,12 +151,17 @@ import HowmanytimeComp from "./HowmanytimeComp";
       <Router>
       <Switch>
       <Route exact path="/">
+
+      <XyzProvider value={{ test: "defaulttttttt" }}>
+       
+      </XyzProvider>
+
+
+
             <Welcome/>
 
-
-            <HowmanytimeProvider value={{ n: "here I use context" }}>{" "}
-                <Text style={{ fontSize: 96 }}><HowmanytimeComp/></Text>
-            </HowmanytimeProvider>
+              
+            
 
 
             </Route>

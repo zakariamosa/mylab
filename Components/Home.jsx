@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 
 import HundInfo from './HundInfo';
 import ico from '../images/bulit-icon.png';
@@ -6,10 +6,15 @@ import {useHistory, useParams} from 'react-router-dom';
 import icopresent from '../images/present.png';
 import icoabsent from '../images/absent.jpg';
 import { StyleSheet, Text, View, Image, Button, TextInput, ScrollView } from 'react-native';
+import BComp from '../BComp';
 
 
 
-const Home = ({ nextScreen/*, dogname*/ }) => {
+
+import XyzContext, { XyzProvider } from "../XyzContext";
+
+
+const Home = ({ nextScreen/*, dogname*/ },props) => {
     
     
     const [hasData, setHasData] = useState(false);
@@ -44,7 +49,7 @@ const Home = ({ nextScreen/*, dogname*/ }) => {
                 <ScrollView>
                 <Image
                 source={hund.img}
-                style={{width: 200, height: 200}}
+                style={{width: 220, height: 200}}
               /> 
               <Button
                   onPress={()=>{
@@ -53,10 +58,16 @@ const Home = ({ nextScreen/*, dogname*/ }) => {
                         <HundInfo
                             dog={hund}
                         />
-                    )
+                    );
+                                    
+<XyzProvider value={{ test: hund.name }}>
+        {" "}
+        <BComp />
+      </XyzProvider>
 
                   }}
                   title="More Info"
+                  
               />
               </ScrollView>
                 

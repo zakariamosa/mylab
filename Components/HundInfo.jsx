@@ -1,7 +1,7 @@
 import Logo from '../images/banner.jpg'
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-
+import { StyleSheet, Text, View, Image, Button, TextInput, ScrollView } from 'react-native';
 const HundInfo = (props) => 
     
     
@@ -13,7 +13,11 @@ const HundInfo = (props) =>
     <section>
         <section className='dogsec'>
             <div className='theimg'>
-                <img src={props.dog.img}></img>
+            <Image
+                source={props.dog.img}
+                style={{width: 220, height: 200}}
+              /> 
+                
             </div>
             <div className='dogmoreinfo'>
                  <h2>{props.dog.name}</h2>

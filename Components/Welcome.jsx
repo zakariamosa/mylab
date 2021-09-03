@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import banner from  '../images/banner.jpg';
 import {Link} from 'react-router-dom';
 import { StyleSheet, Text, View, Image, Button, TextInput, ScrollView } from 'react-native';
-const Welcome = (/*{ nextScreen }*/) => (
+import BComp from '../BComp';
+
+
+
+
+const Welcome = (/*{ nextScreen }*/) => {
+    
+    return (
+        
     <View>
        <Image
        source={banner}
@@ -21,11 +29,11 @@ const Welcome = (/*{ nextScreen }*/) => (
        <button /*onClick= {nextScreen}*/className='box'> Jaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa! </button>
        </Link>
    </div>
-
+   <BComp/>
  
     </View>
     
     
 )
-
+};
 export default Welcome;
